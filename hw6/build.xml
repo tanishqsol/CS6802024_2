@@ -1,0 +1,73 @@
+<!--  To run this build script, type:
+
+      ant -f hw.xml
+
+      on a shell.
+-->
+<project name="hw6" basedir="."  default="clean" xmlns:ivy="antlib:org.apache.ivy.ant">
+	<property name="src" location="src/main" />
+	<property name="test.src" location="src/test" />
+
+	<property name="bin" location="build/main" />
+	<property name="test.bin" location="build/test" />
+	<property name="ivy.lib" location="lib"/>
+
+	<path id="classpath">
+		<pathelement location="${bin}" />
+		<pathelement location="${test.bin}" />
+		<fileset dir="${ivy.lib}"/>
+	</path>
+
+	<target name="init">
+		<mkdir dir="${bin}"/>
+		<mkdir dir="${test.bin}"/>
+		<mkdir dir="test/reports"/>
+		<mkdir dir="${ivy.lib}"/>
+		<echo message="CLASSPATH: ${toString:classpath}" />
+	</target>
+
+	<target name="resolve" depends="init"
+			description="--> Download JAR files (listed in ivy.xml) to the 'lib' directory.">
+		<ivy:retrieve/>
+	</target>
+
+	<target name="compile" depends="resolve">
+		<javac srcdir="${src}" destdir="${bin}" includeAntRuntime="no">
+			<classpath refid="classpath"/>
+			<include name="umbcs680/hw6/*.java"/>
+
+		</javac>
+		<javac srcdir="${test.src}" destdir="${test.bin}" includeAntRuntime="no">
+			<classpath refid="classpath"/>
+			<include name="umbcs680/hw6/*.java"/>
+		</javac>
+	</target>
+
+	<target name="test" depends="compile">
+
+
+		<junitlauncher haltOnFailure="false" printSummary="true">
+			<classpath refid="classpath" />
+			<testclasses outputdir="test">
+				<fileset dir="${test.bin}">
+					<include name="umbcs680/hw6/*Test.class"/>
+				</fileset>
+				<listener type="legacy-brief" sendSysOut="true"/>
+			</testclasses>
+		</junitlauncher>
+	</target>
+
+
+
+	<target name="clean" depends="test">
+		<delete includeemptydirs="true">
+			<fileset dir="${bin}/umbcs680/hw6/" includes="**/*"/>
+			<fileset dir="${test.bin}/umbcs680/hw6/" includes="**/*"/>
+		</delete>
+	</target>
+
+	<target name="clean-cache"
+			description="--> clean the ivy cache (by default ~/.ivy2/cache)">
+		<ivy:cleancache/>
+	</target>
+</project>

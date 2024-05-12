@@ -1,0 +1,31 @@
+Testcase: umbcs680.hw6.FileTest
+Test: testGetCreationTime() took 7 milli sec(s) FAILED: Cannot invoke "umbcs680.hw6.File.getCreationTime()" because "umbcs680.hw6.FileTest.readme" is null
+java.lang.NullPointerException: Cannot invoke "umbcs680.hw6.File.getCreationTime()" because "umbcs680.hw6.FileTest.readme" is null
+	at umbcs680.hw6.FileTest.testGetCreationTime(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+Test: testGetName() took 2 milli sec(s) FAILED: Cannot invoke "umbcs680.hw6.File.getName()" because "umbcs680.hw6.FileTest.readme" is null
+java.lang.NullPointerException: Cannot invoke "umbcs680.hw6.File.getName()" because "umbcs680.hw6.FileTest.readme" is null
+	at umbcs680.hw6.FileTest.testGetName(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+Test: testGetSize() took 2 milli sec(s) FAILED: Cannot invoke "umbcs680.hw6.File.getSize()" because "umbcs680.hw6.FileTest.readme" is null
+java.lang.NullPointerException: Cannot invoke "umbcs680.hw6.File.getSize()" because "umbcs680.hw6.FileTest.readme" is null
+	at umbcs680.hw6.FileTest.testGetSize(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+Test: verifyFileEqualityReadme() took 3 milli sec(s) FAILED: Cannot invoke "umbcs680.hw6.File.getParent()" because "<parameter1>" is null
+java.lang.NullPointerException: Cannot invoke "umbcs680.hw6.File.getParent()" because "<parameter1>" is null
+	at umbcs680.hw6.FileTest.fileToStringArray(Unknown Source)
+	at umbcs680.hw6.FileTest.verifyFileEqualityReadme(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+Tests run: 7, Failures: 4, Skipped: 0, Aborted: 0, Time elapsed: 23 milli sec(s)
